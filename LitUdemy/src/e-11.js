@@ -14,11 +14,18 @@ export class Ejercicio_11 extends LitElement {
     render() {
         return html`
          <h2>manejar un Select y obtener su valor</h2>
-        <select>
+        <select @change="${this.showValue}">
             <option select>--</option>
             ${this.countries.map(i => html`<option value="${i}">${i}</option>`)}
         </select>
     `
+    }
+
+    // leer valor
+    showValue(e){
+        let valor = e.target.value;
+        console.log(valor);
+        
     }
 }
 customElements.define("e-11", Ejercicio_11)

@@ -1,22 +1,35 @@
 import { LitElement, html  } from "lit";
 import { customElement } from 'lit/decorators.js';
 
-export class Ejercicio_08 extends LitElement {
+export class Ejercicio_12 extends LitElement {
     static get properties() {
         return {
-            prop1: { type: String }
+            clicks: { type: Number }
         }
     }
     constructor() {
         super();
-        this.prop1 = "Propiedad 1"
+        this.clicks = 0;
     }
     render() {
         return html`
-       <p>sss</p>
+       <h2>Contador</h2>
+       <button @click="${this.mas}">+</button>
+       <button @click="${this.menos}">-</button>
+       <p>Contador: ${this.clicks}</p>
 
     `
     }
+    mas(e){
+        this.clicks ++;
+        console.log(this.clicks);
+        
+    }
+    menos(e){
+        this.clicks --;
+        console.log(this.clicks);
+        
+    }
 }
-customElements.define("e-08", Ejercicio_08)
+customElements.define("e-12", Ejercicio_12)
 
